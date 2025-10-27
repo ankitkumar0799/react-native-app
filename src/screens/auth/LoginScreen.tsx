@@ -80,19 +80,19 @@ export default function LoginScreen({ navigation }: any) {
               height={width * 0.8}
             >
               <Image
-                source={require("../../../assets/banner1.png")}
+                source={require("../../assets/banner1.png")}
                 style={styles.sliderImage}
               />
               <Image
-                source={require("../../../assets/banner2.webp")}
+                source={require("../../assets/banner2.webp")}
                 style={styles.sliderImage}
               />
               <Image
-                source={require("../../../assets/banner3.webp")}
+                source={require("../../assets/banner3.webp")}
                 style={styles.sliderImage}
               />
               <Image
-                source={require("../../../assets/banner4.webp")}
+                source={require("../../assets/banner4.webp")}
                 style={styles.sliderImage}
               />
             </Swiper>
