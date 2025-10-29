@@ -53,36 +53,49 @@ export default function OtpScreen({ route, navigation }: any) {
     ]).start();
   };
 
-  // ✅ Verify OTP with Supabase
+  // ✅ Verify OTP with Supabase ye main wala hai
+  // const verifyOtp = async () => {
+  //   if (code.length < 6) {
+  //     Alert.alert("Incomplete", "Please enter the full 6-digit OTP");
+  //     return;
+  //   }
+
+  //   try {
+  //     setLoading(true);
+  //     const { error } = await supabase.auth.verifyOtp({
+  //       phone,
+  //       token: code,
+  //       type: "sms",
+  //     });
+
+  //     if (error) {
+  //       triggerShake();
+  //       Alert.alert("Invalid OTP", error.message || "Please try again");
+  //       return;
+  //     }
+
+  //     Alert.alert("Success", "OTP verified successfully!");
+  //     navigation.reset({ index: 0, routes: [{ name: "HomeScreen" }] });
+  //   } catch (e: any) {
+  //     triggerShake();
+  //     Alert.alert("Error", e.message || "Something went wrong");
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+
+
   const verifyOtp = async () => {
     if (code.length < 6) {
       Alert.alert("Incomplete", "Please enter the full 6-digit OTP");
       return;
     }
-
-    try {
-      setLoading(true);
-      const { error } = await supabase.auth.verifyOtp({
-        phone,
-        token: code,
-        type: "sms",
-      });
-
-      if (error) {
-        triggerShake();
-        Alert.alert("Invalid OTP", error.message || "Please try again");
-        return;
-      }
-
-      Alert.alert("Success", "OTP verified successfully!");
-      navigation.reset({ index: 0, routes: [{ name: "HomeScreen" }] });
-    } catch (e: any) {
-      triggerShake();
-      Alert.alert("Error", e.message || "Something went wrong");
-    } finally {
-      setLoading(false);
-    }
+  
+    // 👇 Skip Supabase verification — direct success
+    Alert.alert("Success", "OTP verification skipped (for testing)");
+    navigation.reset({ index: 0, routes: [{ name: "HomeScreen" }] });
   };
+  
 
   // 🔁 Resend OTP
   const resendOtp = async () => {

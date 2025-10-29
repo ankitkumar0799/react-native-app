@@ -25,6 +25,40 @@ export default function LoginScreen({ navigation }: any) {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
 
+
+// ye hai main wala code 
+  // const handleSendOtp = async () => {
+  //   if (phone.length !== 10) {
+  //     return Alert.alert("Invalid number", "Please enter a valid 10-digit number");
+  //   }
+  
+  //   const formattedPhone = `+91${phone}`;
+  
+  //   try {
+  //     setLoading(true);
+  //     const { error } = await supabase.auth.signInWithOtp({ phone: formattedPhone });
+  
+  //     if (error) {
+  //       console.log("OTP error:", error.message);
+  //       Alert.alert("Error", error.message);
+  //       return;
+  //     }
+  
+  //     Alert.alert("Success", "OTP sent successfully!");
+  //     navigation.navigate("OtpScreen", { phone: formattedPhone });
+  //   } catch (e: any) {
+  //     console.log("Unexpected error:", e);
+  //     Alert.alert("Network Error", e.message);
+  //   } finally {
+  //     setLoading(false);
+  //   }
+  // };
+  
+  
+
+
+
+
   const handleSendOtp = async () => {
     if (phone.length !== 10) {
       return Alert.alert("Invalid number", "Please enter a valid 10-digit number");
@@ -32,28 +66,11 @@ export default function LoginScreen({ navigation }: any) {
   
     const formattedPhone = `+91${phone}`;
   
-    try {
-      setLoading(true);
-      const { error } = await supabase.auth.signInWithOtp({ phone: formattedPhone });
-  
-      if (error) {
-        console.log("OTP error:", error.message);
-        Alert.alert("Error", error.message);
-        return;
-      }
-  
-      Alert.alert("Success", "OTP sent successfully!");
-      navigation.navigate("OtpScreen", { phone: formattedPhone });
-    } catch (e: any) {
-      console.log("Unexpected error:", e);
-      Alert.alert("Network Error", e.message);
-    } finally {
-      setLoading(false);
-    }
+    // 👇 Skip Supabase OTP API — directly go to OTP screen
+    Alert.alert("Mock OTP", "Skipping OTP sending (for testing)");
+    navigation.navigate("OtpScreen", { phone: formattedPhone });
   };
   
-  
-
 
 
   return (
